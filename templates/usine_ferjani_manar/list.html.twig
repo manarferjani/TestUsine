@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}usines List!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>usines List</h1>
+    <a href="{{ path('app_usine_create') }}">Create New usine</a><hr>
+    {% set nbr_books = 0 %}
+    {% for usine in usines %}
+    
+    <p><b>nom : </b> {{ usine.nom}} </p>
+    <div>
+    <p><b>nbrTotal : </b> {{ usine.nbrTotal}} </p>
+    <p>Date de production : {{ usine.dateProduction|date('d/m/Y') }}</p>
+
+    <a href="{{ path('app_usine_details',{ id: usine.id }) }}" >View Details</a>
+    <a href="{{ path('app_usine_update',{ id: usine.id }) }}" >Update</a>
+    <a href="{{ path('app_usine_delete',{ id: usine.id }) }}" >Delete</a>
+    </div><hr>
+    {% set nbrTotal = nbr_books + usine.nbrTotal %}
+    {% endfor %}
+    <div>
+
+    </div>
+</div>
+{% endblock %}
