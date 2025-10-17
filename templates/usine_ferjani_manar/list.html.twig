@@ -18,6 +18,8 @@
     <div>
     <p><b>nbrTotal : </b> {{ usine.nbrTotal}} </p>
     <p>Date de production : {{ usine.dateProduction|date('d/m/Y') }}</p>
+    <p><b>statut :</b> {{ usine.statut ? 1 : 0 }}</p>
+
 
     <a href="{{ path('app_usine_details',{ id: usine.id }) }}" >View Details</a>
     <a href="{{ path('app_usine_update',{ id: usine.id }) }}" >Update</a>
